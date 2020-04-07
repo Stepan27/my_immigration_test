@@ -1,6 +1,6 @@
 import unittest
 from time import sleep
-
+from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
@@ -109,7 +109,7 @@ class MyTestCase(unittest.TestCase):
         try:
             driver.find_element_by_xpath("(//input[@name='chkImmigration[]'])[1]").click()
         # вказуєм конкретну Exceptions яка може виникнути і що робити тоді
-        except driver.NoSuchElementException:
+        except NoSuchElementException:
             return True
         return False
         sleep(4)
